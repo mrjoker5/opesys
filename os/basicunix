@@ -1,0 +1,173 @@
+BASIC UNIX COMMANDS
+AIM:
+To study of Basic UNIX Commands and various UNIX editors such as vi, ed, exand
+EMACS.
+ 
+a) date–used to check the date and time
+Syn:$date
+Format Purpose Example Result
++%m To display only month $date+%m 06
++%h To display month name $date+%h June
++%d To display day of month $date+%d O1
++%y To display last two digits of years $date+%y 09
++%H To display hours $date+%H 10
++%M To display minutes $date+%M 45
++%S To display seconds $date+%S 55
+b) cal–used to display the calendar
+Syn:$cal 2 2009
+c)echo–used to print the message on the screen.
+ Syn:$echo “text”
+d) ls–used to list the files. Your files are kept in a directory.
+ Syn:$ls–s
+All files (include files with prefix)
+ls–l Lodetai (provide file 
+statistics)
+ls–t Order by creation time
+ls– u Sort by access time (or show when last accessed together with
+–l)
+ls–s Order by size
+ls–r Reverse order
+ls–f Mark directories with /,executable with* , symbolic links with @, local sockets with =,
+named pipes(FIFOs)with
+ls–s Show file size
+ls– h“ Human Readable”, show file size in Kilo Bytes & Mega Bytes (h can be used together with –l
+or)
+3
+ls[a-m]*List all the files whose name begin with alphabets From „a‟ to „m‟ 
+ls[a]*List all the files whose name begins with „a‟ or „A‟
+Eg:$ls>my list Output of „ls‟ command is stored to disk file named „my list‟
+e)lp–used to take printouts
+Syn:$lp filename
+f)man–used to provide manual help on every UNIX commands.
+ Syn:$man unix command
+ $man cat
+g)who & whoami–it displays data about all users who have logged into the system currently. The 
+next commanddisplays about current user only.
+ Syn:$who$whoami
+h) uptime–tells you how long the computer has been running since its last reboot or power-off.
+ Syn:$uptime
+i)uname–it displays the system information such as hardware platform, system name and processor, 
+OS type.
+ Syn:$uname–a
+j) hostname–displays and set system host name
+ Syn:$ hostname
+k) bc–stands for “best calculator‟
+$bc $ bc $ bc $ bc
+10/2*3 scale =1 ibase=2 sqrt(196)
+15 2.25+1 obase=16 14 quit
+3.35 11010011
+quit 89275
+1010
+Ā
+Quit
+$bc $ bc-l
+for(i=1;i<3;i=i+1)I scale=2
+1 s(3.14)
+2 0
+3 quit
+
+
+FILE MANIPULATION COMMANDS
+a)cat–this create, view and concatenate files.
+ Creation:
+ Syn:$cat>filename
+ Viewing:
+ Syn:$cat filename
+ Add text to an existing file:
+ Syn:$cat>>filename
+ Concatenate:
+ Syn:$catfile1file2>file3
+ $catfile1file2>>file3 (no over writing of file3)
+b)grep–used to search a particular word or pattern related to that word from the
+file.Syn:$grep search word filename
+ Eg:$grep anu student
+c)rm–deletes a file from the file
+systemSyn:$rm filename
+d)touch–used to create a blank file.
+ Syn:$touch file names
+e)cp–copies the files or 
+directoriesSyn:$cpsource file 
+destination fileEg:$cp student 
+stud
+f) mv–to rename the file or
+directorysyn:$mv old file new
+file
+ Eg:$mv–i student student list(-i prompt when overwrite)
+g)cut–it cuts or pickup a given number of character or fields of the
+file.Syn:$cut<option><filename>
+ Eg: $cut –c filename
+ $cut–c1-10emp
+ $cut–f 3,6emp
+ $ cut –f 3-6 emp
+ -c cutting columns
+ -f cutting fields
+h)head–displays10 lines from the head(top)of a given
+fileSyn:$head filename
+ Eg:$head student To display the top two lines:
+5
+ Syn:$head-2student
+i)tail–displays last 10 lines of the 
+fileSyn:$tail filename
+ Eg:$tail student
+ To display the bottom two lines;
+ Syn:$ tail -2 student
+j)chmod–used to change the permissions of a file or
+directory.Syn:$ch mod category operation
+permission file Where, Category–is the user type
+Operation–is used to assign or remove permission
+Permission–is the type of permission
+File–are used to assign or remove permission all
+Examples:
+$chmodu-wx student
+Removes write and execute permission for users
+$ch modu+rw,g+rwstudent
+Assigns read and write permission for users and groups
+$chmodg=rwx student
+Assigns absolute permission for groups of all read, write and execute permissions
+k)wc–it counts the number of lines, words, character in a specified
+file(s)with the options as –l,-w,-c
+Category Operation Permission
+u– users
+g–group
+o– others
++assign
+-remove
+=assign absolutely
+r– read w–
+write xexecute
+ Syn: $wc –l filename
+ $wc –w filename
+ $wc–c filename
+
+EMACS Editor
+Motion Commands:
+M-> Move to end of file
+M-< Move to beginning of file
+C-v Move forward a screen M –v 
+Move backward a screen C –n Move
+to next lineC-p Move to previous
+line
+C-a Move to the beginning of
+the lineC-e Move to the end of
+the line
+C-f Move forward a 
+character C-b Move
+backward a characterM-f
+Move forward a word
+M-b Move backward a word
+7
+Deletion Commands:
+DEL delete the previous 
+character C -d delete the current
+character M -DELdelete the previous 
+word
+M-d delete the next word
+C-x DEL deletes the previous sentence
+M-k delete the rest of the current sentence
+C-k deletes the rest of the current line
+C-xu undo the lasted it change
+Search and Replace in EMACS:
+y Change the occurrence of the pattern
+n Don‟t change the occurrence, but look for the other q Don‟t
+change. Leave queryreplace completely
+! Change this occurrence and all others in the file

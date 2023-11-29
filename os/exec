@@ -1,0 +1,13 @@
+exec() System call
+
+
+#include<stdio.h>
+#include<unistd.h>
+main( int argc,char *argv[])
+{
+if(fork()==0)
+{
+execvp(argv[1],&argv[1]);
+fprintf(stderr,"couldnot execute %s \n",argv[1]);
+}
+}

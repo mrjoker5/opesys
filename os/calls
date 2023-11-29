@@ -1,0 +1,38 @@
+Write a C program that makes a copy of a file using 
+standard I/O, and system calls
+
+By using System calls:
+#include<stdio.h>
+#include<fcntl.h>
+#include<unistd.h>
+main(int agrc,char *argv[])
+{
+char buf[20];
+int fd1,fd2,n;
+fd1=open(argv[1],O_RDONLY);
+fd2=open(argv[2],O_WRONLY);
+n=read(fd1,buf,sizeof(buf));
+write(fd2,buf,n);
+close(fd1);
+close(fd2);
+}
+OUTPUT:
+[dmgv@LinuxServer ~]$ cc filename.c
+[dmgv@LinuxServer ~]$ ./a.out student class
+[dmgv@LinuxServer ~]$ cat student
+hai
+ 
+[dmgv@LinuxServer ~]$ cat class 
+ 
+hai 
+By using Standard I/O functions:
+#include&lt;stdio.h&gt;
+int main(int argc,char *argv[])
+{
+FILE *fp1,*fp2;
+int ch;
+fp1=fopen(argv[1],”r”);
+fp2=fopen(argv[2],”w”);
+while((ch=fgetc(fp1))!=-1)
+fputc(ch,fp2);
+}

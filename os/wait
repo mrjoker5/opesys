@@ -1,0 +1,25 @@
+wait() System call
+
+#include<stdio.h>
+#include<unistd.h>
+main()
+{
+int pid,status,childpid;
+printf(" parent process with PID is %d \n ",getpid());
+pid=fork();
+if(pid!=0)
+{
+sleep(1);
+printf(" parent process with PID %d and PPID %d \n ",getpid(),getppid());
+childpid=wait(&status);
+printf("child process PID %d terminated with exit code %d\n",childpid,status>>8
+);
+}
+else
+{
+printf(" child process with PID %d and PPId %d \n ",getpid(),getppid());
+sleep(5);
+exit(42);
+}
+printf("PID %d terminates \n ",getpid());
+}
